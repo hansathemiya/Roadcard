@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="El Variente Web Development Services - Raw HTML, Modular Components, Schema-Driven Templates, SEO Optimization and more."/>
+  <title>Web Development - El Variente</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Garamond, serif;
+      background-color: #F7E7D0;
+      color: #0B0B0B;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glassmorphism */
+    .glass-header,
+    .glass-footer,
+    .glass-card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .glass-card {
+      border: 2px solid #6AA76D;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      box-shadow: 0 0 15px rgba(106, 167, 109, 0.6);
+    }
+
+    /* Header/Navbar */
+    header {
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #800020;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #800020;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #800020;
+      font-weight: normal;
+    }
+
+    /* Web Development Services */
+    .web-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 30px 0 50px;
+    }
+
+    .service-item {
+      padding: 25px;
+    }
+    .service-item h2 {
+      color: #800020;
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    .service-item p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    .service-item a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: transparent;
+      color: #800020;
+      border: 2px solid #800020;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .service-item a:hover {
+      background: #6AA76D;
+      border-color: #6AA76D;
+      color: white;
+      box-shadow: 0 0 8px rgba(106, 167, 109, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3e4551;
+      color: #0B0B0B;
+      padding: 40px 0 0;
+      margin-top: 50px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h5 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    .footer-column ul li a {
+      color: #0B0B0B;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-column ul li a:hover {
+      color: #6AA76D;
+    }
+    .footer-column p {
+      color: #0B0B0B;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-icons a:hover {
+      background: #6AA76D;
+    }
+    .social-icons img {
+      filter: brightness(0);
+    }
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+      color: #0B0B0B;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass-header,
+      .glass-footer {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgba(247, 231, 208, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .web-services {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Elvariente",
+    "alternateName": ["El Variente", "Elvarienti", "Elvarienté", "Elvarient", "Elveriente", "elvariente", "ELVARIENTE", "El Variente", "el variente", "EL VARIENTE", "Elvarienti", "elvarienti", "ELVARIENTI", "Elvarienté", "elvarienté", "ELVARIENTÉ", "Elvariante", "elvariante", "ELVARIANTE", "Elvarient", "elvarient", "ELVARIENT", "Elveriente", "elveriente", "ELVERIENTE", "Elverienti", "elverienti", "ELVERIENTI", "Elvarienta", "elvarienta", "ELVARIENTA", "Elvarente", "elvarente", "ELVARENTE", "Elvariete", "elvariete", "ELVARIETE", "Elvarienty", "elvarienty", "ELVARIENTY", "Elvarinty", "elvarinty", "ELVARINTY", "Elvarieente", "elvarieente", "ELVARIEENTE", "Elvarienthe", "elvarienthe", "ELVARIENTHE", "El-Variente", "el-variente", "EL-VARIENTE", "El.Variente", "el.variente", "EL.VARIENTE", "ElVariente", "elVariente", "ELVariente"],
+    "url": "https://elvariente.com"
+  }
+  </script>
+
+  <!-- Header/Navbar -->
+  <header class="glass-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <h1 class="logo">El Variente</h1>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Web Development</h1>
+      <p>Immersive Interfaces & Responsive Architecture</p>
+    </div>
+  </section>
+
+  <!-- Web Development Services -->
+  <section class="web-content">
+    <div class="container">
+      <div class="web-services">
+        <!-- Raw HTML & Semantic Architecture -->
+        <div class="glass-card service-item">
+          <h2>Raw HTML & Semantic Architecture</h2>
+          <p>We build from the ground up—no frameworks, no fluff. Our raw HTML deployments are lean, fast, and indexable. Every tag is intentional, every structure semantic. This is the foundation of discoverability: clean code, strategic markup, and schema-rich architecture.</p>
+          <a href="/contact">Commission your raw HTML build</a>
+        </div>
+
+        <!-- Modular Component Systems -->
+        <div class="glass-card service-item">
+          <h2>Modular Component Systems</h2>
+          <p>We design reusable, scalable components that adapt across pages, campaigns, and platforms. From buttons to banners to entire sections, our modular systems reduce dev time, improve consistency, and future-proof your site.</p>
+          <a href="/contact">Build your modular system</a>
+        </div>
+
+        <!-- Schema-Driven Page Templates -->
+        <div class="glass-card service-item">
+          <h2>Schema-Driven Page Templates</h2>
+          <p>Every page we build is infused with structured data. We create schema-rich templates for services, locations, FAQs, products, and reviews—ensuring your content is legible to search engines and AI agents alike.</p>
+          <a href="/contact">Deploy schema-rich templates</a>
+        </div>
+
+        <!-- SEO-Optimized Landing Pages -->
+        <div class="glass-card service-item">
+          <h2>SEO-Optimized Landing Pages</h2>
+          <p>We craft landing pages that rank and convert. Each page is built around strategic keywords, semantic structure, and fast-loading assets. Whether you're running ads or capturing organic traffic, these pages perform under pressure.</p>
+          <a href="/contact">Launch your SEO landing page</a>
+        </div>
+
+        <!-- Performance Engineering & Core Web Vitals -->
+        <div class="glass-card service-item">
+          <h2>Performance Engineering & Core Web Vitals</h2>
+          <p>Speed is sacred. We optimize every asset, script, and layout to meet Core Web Vitals benchmarks. From lazy loading to font rendering, we engineer performance that satisfies both users and algorithms.</p>
+          <a href="/contact">Optimize your site's vitals</a>
+        </div>
+
+        <!-- Advanced Animation & Interaction -->
+        <div class="glass-card service-item">
+          <h2>Advanced Animation & Interaction</h2>
+          <p>We use GSAP, Three.js, and AOS to create immersive, responsive experiences. These aren't gimmicks—they're strategic movements that guide attention, reinforce brand story, and elevate user engagement.</p>
+          <a href="/contact">Create your interactive experience</a>
+        </div>
+
+        <!-- GitHub Pages & Static Hosting -->
+        <div class="glass-card service-item">
+          <h2>GitHub Pages & Static Hosting</h2>
+          <p>We deploy to GitHub Pages for lightweight, version-controlled hosting. Ideal for SEO-first brands, this method offers transparency, speed, and full ownership of your codebase. No CMS bloat—just pure performance.</p>
+          <a href="/contact">Deploy your site with precision</a>
+        </div>
+
+        <!-- Multi-Page Architecture & Internal Linking -->
+        <div class="glass-card service-item">
+          <h2>Multi-Page Architecture & Internal Linking</h2>
+          <p>We build site structures that support deep navigation and internal linking. From service silos to topic clusters, we ensure your site flows logically, ranks holistically, and supports long-term content expansion.</p>
+          <a href="/contact">Architect your site's structure</a>
+        </div>
+
+        <!-- Accessibility & Semantic UX -->
+        <div class="glass-card service-item">
+          <h2>Accessibility & Semantic UX</h2>
+          <p>We design with inclusivity in mind. Every site is built to meet accessibility standards—ARIA roles, keyboard navigation, contrast ratios, and semantic clarity. Because visibility should never exclude.</p>
+          <a href="/contact">Ensure your site is accessible</a>
+        </div>
+
+        <!-- Technical SEO Audits & Refactoring -->
+        <div class="glass-card service-item">
+          <h2>Technical SEO Audits & Refactoring</h2>
+          <p>We audit your existing site for crawlability, indexation, and markup integrity. Then we refactor your codebase to align with modern SEO standards—removing bloat, fixing structure, and enhancing discoverability.</p>
+          <a href="/contact">Request a technical SEO audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h5>El Variente</h5>
+          <p>Sri Lanka's most prestigious multidisciplinary firm specializing in branding, marketing, content creation, and strategic business solutions.</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/linkedin.svg" alt="LinkedIn" width="20">
+            </a>
+             <a href="https://www.instagram.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/instagram.svg" alt="Instagram" width="20">
+            </a>
+            <a href="https://www.facebook.com/elvariente" target="_blank" rel="noopener">
+              <img src="/logos/facebook.svg" alt="Facebook" width="20">
+            </a>
+            <a href="https://twitter.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/twitter.svg" alt="Twitter" width="20">
+           </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/services/branding">Branding</a></li>
+            <li><a href="/services/marketing">Marketing</a></li>
+            <li><a href="/services/content">Content Creation</a></li>
+            <li><a href="/services/smma">Social Media</a></li>
+            <li><a href="/services/sales">Sales</a></li>
+            <li><a href="/services/ads">Advertisement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="/services/web">Web Development</a></li>
+            <li><a href="/services/ai">AI Solutions</a></li>
+            <li><a href="/services/strategy">Strategic Problem Solving</a></li>
+            <li><a href="/services/seo">SEO & LLMO</a></li>
+            <li><a href="/services/gmb">Google My Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Careers at El Variente - Join our team of strategists, designers, developers, and creators."/>
+  <title>Careers - El Variente</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Garamond, serif;
+      background-color: #F7E7D0;
+      color: #0B0B0B;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glassmorphism */
+    .glass-header,
+    .glass-footer,
+    .glass-card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .glass-card {
+      border: 2px solid #6AA76D;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      box-shadow: 0 0 15px rgba(106, 167, 109, 0.6);
+    }
+
+    /* Header/Navbar */
+    header {
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #800020;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #800020;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #800020;
+      font-weight: normal;
+    }
+
+    /* Careers Content */
+    .careers-content {
+      padding: 30px 0 50px;
+    }
+    .careers-content h2 {
+      color: #800020;
+      font-size: 1.8rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    .careers-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* Form Styles */
+    .careers-form-container {
+      margin: 40px 0;
+      padding: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #800020;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: Garamond, serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .submit-btn {
+      background: #800020;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .submit-btn:hover {
+      background: #6AA76D;
+    }
+    .hidden {
+      display: none;
+    }
+    .success-message {
+      background: rgba(106, 167, 109, 0.2);
+      border: 1px solid #6AA76D;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3e4551;
+      color: #0B0B0B;
+      padding: 40px 0 0;
+      margin-top: 50px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h5 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    .footer-column ul li a {
+      color: #0B0B0B;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-column ul li a:hover {
+      color: #6AA76D;
+    }
+    .footer-column p {
+      color: #0B0B0B;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-icons a:hover {
+      background: #6AA76D;
+    }
+    .social-icons img {
+      filter: brightness(0);
+    }
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+      color: #0B0B0B;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass-header,
+      .glass-footer {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgba(247, 231, 208, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      .page-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Elvariente",
+    "alternateName": ["El Variente", "Elvarienti", "Elvarienté", "Elvarient", "Elveriente", "elvariente", "ELVARIENTE", "El Variente", "el variente", "EL VARIENTE", "Elvarienti", "elvarienti", "ELVARIENTI", "Elvarienté", "elvarienté", "ELVARIENTÉ", "Elvariante", "elvariante", "ELVARIANTE", "Elvarient", "elvarient", "ELVARIENT", "Elveriente", "elveriente", "ELVERIENTE", "Elverienti", "elverienti", "ELVERIENTI", "Elvarienta", "elvarienta", "ELVARIENTA", "Elvarente", "elvarente", "ELVARENTE", "Elvariete", "elvariete", "ELVARIETE", "Elvarienty", "elvarienty", "ELVARIENTY", "Elvarinty", "elvarinty", "ELVARINTY", "Elvarieente", "elvarieente", "ELVARIEENTE", "Elvarienthe", "elvarienthe", "ELVARIENTHE", "El-Variente", "el-variente", "EL-VARIENTE", "El.Variente", "el.variente", "EL.VARIENTE", "ElVariente", "elVariente", "ELVariente"],
+    "url": "https://elvariente.com"
+  }
+  </script>
+
+  <!-- Header/Navbar -->
+  <header class="glass-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <h1 class="logo">El Variente</h1>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Careers at El Variente</h1>
+      <p>We don't list roles. We unlock them.</p>
+    </div>
+  </section>
+
+  <!-- Careers Content -->
+  <section class="careers-content">
+    <div class="container">
+      <p>Tell us what you do—your craft, your obsession, your edge. Whether you're a developer, strategist, designer, writer, or something mythic we haven't named yet, we want to know what you bring. In return, we'll show you what you can do inside El Variente.</p>
+      
+      <p>We don't hire to fill gaps. We build around talent.</p>
+      
+      <h2>How It Works</h2>
+      <p>We've built a ceremonial intake form that adapts to you. No resumes. No cover letters. Just clarity.</p>
+      <ul>
+        <li>Share your skills, tools, and obsessions</li>
+        <li>Tell us how you think, build, and create</li>
+        <li>We'll respond with a tailored role, scope, or collaboration path</li>
+      </ul>
+      <p>This isn't a job board. It's a gateway.</p>
+      
+      <h2>Begin Your Initiation</h2>
+      <p>Click below to enter the form. It's prefilled with backend logic that routes your submission to the right ritual steward. Once received, we'll review your offering and respond with a custom invitation.</p>
+      
+      <!-- Careers Form -->
+      <div class="glass-card careers-form-container">
+        <form id="elvariente-careers-form" action="https://docs.google.com/forms/d/e/YOUR_CAREERS_FORM_ID/formResponse" method="POST" target="hidden_iframe">
+          <div class="form-group">
+            <label for="full-name">Full Name *</label>
+            <input type="text" id="full-name" name="entry.123456789" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="entry.987654321" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="craft">Your Craft / Area of Expertise *</label>
+            <select id="craft" name="entry.456789123" required>
+              <option value="">Select your craft</option>
+              <option value="Web Development">Web Development</option>
+              <option value="UI/UX Design">UI/UX Design</option>
+              <option value="Branding & Identity">Branding & Identity</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Graphic Design">Graphic Design</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="SEO/SEM">SEO/SEM</option>
+              <option value="Social Media Management">Social Media Management</option>
+              <option value="Sales Strategy">Sales Strategy</option>
+              <option value="AI Solutions">AI Solutions</option>
+              <option value="Strategic Consulting">Strategic Consulting</option>
+              <option value="Other">Other (please specify)</option>
+            </select>
+          </div>
+          
+          <div class="form-group" id="other-craft-container" style="display: none;">
+            <label for="other-craft">Please Specify Your Craft</label>
+            <input type="text" id="other-craft" name="entry.321654987">
+          </div>
+          
+          <div class="form-group">
+            <label for="tools">Primary Tools & Technologies</label>
+            <input type="text" id="tools" name="entry.654987321" placeholder="e.g., Figma, React, Adobe Creative Suite, Google Ads">
+          </div>
+          
+          <div class="form-group">
+            <label for="obsessions">What Are You Obsessed With? *</label>
+            <textarea id="obsessions" name="entry.789123456" required placeholder="Tell us what drives you, what you're passionate about, what keeps you up at night..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="approach">How Do You Think, Build, and Create? *</label>
+            <textarea id="approach" name="entry.147258369" required placeholder="Describe your approach to problem-solving, your creative process, or how you tackle challenges..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="portfolio">Portfolio / Work Samples (URL)</label>
+            <input type="url" id="portfolio" name="entry.258369147" placeholder="https://">
+          </div>
+          
+          <div class="form-group">
+            <label for="why-elvariente">Why El Variente? *</label>
+            <textarea id="why-elvariente" name="entry.369258147" required placeholder="What draws you to El Variente? What do you hope to achieve here?"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit Your Offering</button>
+        </form>
+        
+        <div id="success-message" class="success-message">
+          <h3>Thank You!</h3>
+          <p>Your offering has been received. We'll review your submission and respond with a custom invitation shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/linkedin.svg" alt="LinkedIn" width="20">
+            </a>
+             <a href="https://www.instagram.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/instagram.svg" alt="Instagram" width="20">
+            </a>
+            <a href="https://www.facebook.com/elvariente" target="_blank" rel="noopener">
+              <img src="/logos/facebook.svg" alt="Facebook" width="20">
+            </a>
+            <a href="https://twitter.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/twitter.svg" alt="Twitter" width="20">
+           </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/services/branding">Branding</a></li>
+            <li><a href="/services/marketing">Marketing</a></li>
+            <li><a href="/services/content">Content Creation</a></li>
+            <li><a href="/services/smma">Social Media</a></li>
+            <li><a href="/services/sales">Sales</a></li>
+            <li><a href="/services/ads">Advertisement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="/services/web">Web Development</a></li>
+            <li><a href="/services/ai">AI Solutions</a></li>
+            <li><a href="/services/strategy">Strategic Problem Solving</a></li>
+            <li><a href="/services/seo">SEO & LLMO</a></li>
+            <li><a href="/services/gmb">Google My Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 El Variente. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hidden iframe to prevent redirect -->
+  <iframe name="hidden_iframe" class="hidden"></iframe>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('#nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+
+  <!-- Form Handling Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get form elements
+      const form = document.getElementById('elvariente-careers-form');
+      const successMessage = document.getElementById('success-message');
+      const craftSelect = document.getElementById('craft');
+      const otherCraftContainer = document.getElementById('other-craft-container');
+      
+      // Show/hide other craft field
+      craftSelect.addEventListener('change', function() {
+        if (this.value === 'Other') {
+          otherCraftContainer.style.display = 'block';
+        } else {
+          otherCraftContainer.style.display = 'none';
+        }
+      });
+      
+      // Form submission handling
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Submit form via fetch to avoid redirect
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // This prevents CORS errors but also prevents reading the response
+        })
+        .then(() => {
+          // Show success message
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(error => {
+          // Even with errors, show success message since we can't read the response
+          // due to no-cors mode
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          successMessage.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+
+  <!-- Analytics Placeholders -->
+  <!-- Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_TRACKING_ID');
+  </script> -->
+
+  <!-- Meta Pixel -->
+  <!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script> -->
+</body>
+</html>

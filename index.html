@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="El Variente - Sri Lanka's leading multidisciplinary firm in branding, marketing, web development, AI solutions, and strategic business problem solving."/>
+  <title>El Variente</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Garamond, serif;
+      background-color: #F7E7D0; /* Updated primary color */
+      color: #0B0B0B;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glassmorphism */
+    .glass-header,
+    .glass-footer {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header/Navbar */
+    header {
+      padding: 10px 0; /* Slimmer header */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #800020;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #800020;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #800020;
+      font-weight: normal;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      color: #800020;
+      border: 2px solid #800020;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #6AA76D;
+      border-color: #6AA76D;
+      color: white;
+    }
+
+    /* Content Sections */
+    .content-section {
+      padding: 50px 0;
+    }
+    .content-section:nth-child(even) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .content-item {
+      margin-bottom: 40px;
+    }
+    .content-item:last-child {
+      margin-bottom: 0;
+    }
+    .content-item h2 {
+      color: #800020;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    .content-item p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3e4551;
+      color: white;
+      padding: 40px 0 0;
+      margin-top: 50px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h5 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-column ul li a:hover {
+      color: #6AA76D;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-icons a:hover {
+      background: #6AA76D;
+    }
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass-header,
+      .glass-footer {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgba(247, 231, 208, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Elvariente",
+    "alternateName": ["El Variente", "Elvarienti", "Elvarienté", "Elvarient", "Elveriente", "elvariente", "ELVARIENTE", "El Variente", "el variente", "EL VARIENTE", "Elvarienti", "elvarienti", "ELVARIENTI", "Elvarienté", "elvarienté", "ELVARIENTÉ", "Elvariante", "elvariante", "ELVARIANTE", "Elvarient", "elvarient", "ELVARIENT", "Elveriente", "elveriente", "ELVERIENTE", "Elverienti", "elverienti", "ELVERIENTI", "Elvarienta", "elvarienta", "ELVARIENTA", "Elvarente", "elvarente", "ELVARENTE", "Elvariete", "elvariete", "ELVARIETE", "Elvarienty", "elvarienty", "ELVARIENTY", "Elvarinty", "elvarinty", "ELVARINTY", "Elvarieente", "elvarieente", "ELVARIEENTE", "Elvarienthe", "elvarienthe", "ELVARIENTHE", "El-Variente", "el-variente", "EL-VARIENTE", "El.Variente", "el.variente", "EL.VARIENTE", "ElVariente", "elVariente", "ELVariente"],
+    "url": "https://elvariente.com"
+  }
+  </script>
+
+  <!-- Header/Navbar -->
+  <header class="glass-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <h1 class="logo">El Variente</h1>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Prestigious Solutions for Visionary Brands</h1>
+      <p>Your partner in branding, marketing, web development, AI, and strategic innovation.</p>
+      <a href="/services" class="btn">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <section class="content-section">
+    <div class="container">
+      <div class="content-item">
+        <h2><b>Branding</b></h2>
+        <p><b>Strategic Identity Development</b> We develop timeless brand identities that build legacy, clarity, and emotional resonance across industries. From naming and symbolism to visual systems and tone, our branding process is designed to create mythic impact and long-term recognition.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Marketing</b></h2>
+        <p><b>Growth Strategy & Campaign Engineering</b> We engineer marketing systems that drive engagement, generate leads, and position your brand for long-term growth. Our approach blends digital precision with psychological intrigue to ensure every campaign delivers measurable results.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Content Creation</b></h2>
+        <p><b>Media Production & Brand Storytelling</b> We produce persuasive, high-impact content—from video and copy to animation and social media assets. Every piece is crafted to elevate your brand voice, captivate your audience, and reinforce your strategic goals.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>SMMA</b></h2>
+        <p><b>Social Media Management & Advertising</b> We manage and amplify your social presence through organic growth, paid campaigns, and influencer outreach. Our SMMA services ensure your brand stays visible, relevant, and engaging across every platform.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Sales</b></h2>
+        <p><b>Consultative Selling & Funnel Optimization</b> We design consultative sales funnels, automate CRM workflows, and craft pitch strategies that convert. Our sales systems are built to intrigue, persuade, and close with precision.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Advertisement</b></h2>
+        <p><b>Targeted Campaigns & ROI Optimization</b> We deploy targeted ad campaigns across platforms with optimized creatives and conversion-focused strategy. From Google to Meta, we ensure your brand reaches the right audience at the right time.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Web Development & Design</b></h2>
+        <p><b>Immersive Interfaces & Responsive Architecture</b> We build responsive, immersive websites that reflect your brand's essence and deliver seamless user experiences. Our development process combines technical mastery with cinematic design.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>AI Solutions</b></h2>
+        <p><b>Automation, Personalization & Insight</b> We integrate AI to automate workflows, personalize content, and unlock strategic insights for business growth. Our solutions enhance efficiency, decision-making, and customer engagement.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>Strategic Problem Solving</b></h2>
+        <p><b>Diagnostics & Business Transformation</b> We diagnose and resolve complex business challenges with tailored solutions for clarity, efficiency, and transformation. Our consulting approach is grounded in precision and impact.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="content-item">
+        <h2><b>SEO, LLMO & GMB</b></h2>
+        <p><b>Search Visibility & AI Discoverability</b> We optimize your brand for search engines, AI models, and local discovery to maximize visibility and reach. From Google to ChatGPT, we ensure your brand is found where it matters.</p>
+        <button class="btn">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h5>El Variente</h5>
+          <p>Sri Lanka's most prestigious multidisciplinary firm specializing in branding, marketing, content creation, and strategic business solutions.</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/linkedin.svg" alt="LinkedIn" width="20">
+            </a>
+             <a href="https://www.instagram.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/instagram.svg" alt="Instagram" width="20">
+            </a>
+            <a href="https://www.facebook.com/elvariente" target="_blank" rel="noopener">
+              <img src="/logos/facebook.svg" alt="Facebook" width="20">
+            </a>
+            <a href="https://twitter.com/elvariente" target="_blank" rel="noopener">
+             <img src="/logos/twitter.svg" alt="Twitter" width="20">
+           </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/services#branding">Branding</a></li>
+            <li><a href="/services#marketing">Marketing</a></li>
+            <li><a href="/services#content">Content Creation</a></li>
+            <li><a href="/services#smma">Social Media</a></li>
+            <li><a href="/services#sales">Sales</a></li>
+            <li><a href="/services#ads">Advertisement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="/services#web">Web Development</a></li>
+            <li><a href="/services#ai">AI Solutions</a></li>
+            <li><a href="/services#strategy">Strategic Problem Solving</a></li>
+            <li><a href="/services#seo">SEO & LLMO</a></li>
+            <li><a href="/services#gmb">Google My Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 El Variente. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('#nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+
+  <!-- Analytics Placeholders -->
+  <!-- Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_TRACKING_ID');
+  </script> -->
+
+  <!-- Meta Pixel -->
+  <!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script> -->
+</body>
+</html>

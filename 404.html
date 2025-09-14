@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found | El Variente</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      /* El Variente Color Scheme */
+      --primary-accent: #800020; /* Burgundy */
+      --secondary-accent: #6AA76D; /* Luxury Green */
+      --gold-bg-text: #F7E7D0; /* Imperial Gold Background */
+      --text-on-light: #0B0B0B; /* Obsidian Black */
+      --text-on-dark: #FDFDFD; /* Pearl White */
+      --paper-bg: #F7E7D0; /* Imperial Gold */
+      --dark-bg: #0B0B0B; /* Obsidian Black */
+      --neutral-divider: #837060; /* Smoky Quartz */
+      --glass-light: rgba(255, 255, 255, 0.25); /* Glass effect */
+      --glass-dark: rgba(11, 11, 11, 0.25); /* Obsidian Tint */
+      --terminal-text: var(--text-on-light); /* Black text */
+      --terminal-bg: var(--glass-light); /* Light Glass */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--paper-bg);
+      color: var(--text-on-light);
+      font-family: 'IBM Plex Mono', monospace;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Prevent main page scroll */
+      position: relative;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .terminal-container {
+      width: 90%;
+      max-width: 900px;
+      height: 80vh;
+      background: var(--terminal-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; /* Contain scroll */
+      position: relative;
+      z-index: 10;
+    }
+
+    .terminal-header {
+      height: 30px;
+      background: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--neutral-divider);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot.close { background: var(--primary-accent); }
+    .dot.minimize { background: var(--neutral-divider); }
+    .dot.maximize { background: var(--gold-bg-text); border: 1px solid var(--neutral-divider); }
+
+    .terminal-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto; /* Allow scroll inside terminal */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .output {
+      flex: 1;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--terminal-text);
+    }
+
+    .input-line {
+      display: flex;
+      color: var(--terminal-text);
+    }
+
+    .prompt {
+      color: var(--primary-accent);
+      margin-right: 8px;
+      user-select: none; /* Prevent selection of prompt */
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      color: var(--terminal-text);
+      font-family: inherit;
+      font-size: inherit;
+      flex: 1;
+      outline: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-accent);
+      border-radius: 3px;
+    }
+
+    .highlight {
+      color: var(--primary-accent);
+      font-weight: bold;
+    }
+
+    .error {
+      color: var(--primary-accent);
+    }
+
+    .success {
+      color: var(--secondary-accent);
+    }
+
+    a {
+       color: var(--secondary-accent);
+       text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <div class="terminal-container">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="dot close"></div>
+        <div class="dot minimize"></div>
+        <div class="dot maximize"></div>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <div class="output" id="output">
+ELVARIENTE SYSTEM v2.1
+<span class="error">ERROR 404: Path Not Found</span>
+The requested resource could not be located in the deployment matrix.
+
+Type <span class="highlight">help</span> for available navigation commands.
+>>> 
+      </div>
+      <div class="input-line">
+        <span class="prompt">>>></span>
+        <input type="text" id="commandInput" autocomplete="off" autofocus>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Particles Config (Matching your aesthetic)
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#800020" }, /* Burgundy particles */
+        shape: { type: "circle" },
+        opacity: { value: 0.2, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#800020", opacity: 0.1, width: 1 },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
+        }
+      }
+    });
+
+    const output = document.getElementById("output");
+    const input = document.getElementById("commandInput");
+
+    // Function to append text to the output
+    function appendToOutput(text) {
+        const newLine = document.createElement("div");
+        newLine.innerHTML = text;
+        output.appendChild(newLine);
+        // Scroll to bottom
+        output.parentElement.scrollTop = output.parentElement.scrollHeight;
+    }
+
+    // Function to redirect to a page
+    function goToPage(path) {
+        window.location.href = path;
+    }
+
+    // Available commands
+    const commands = {
+      help: () => `
+<span class="highlight">[NAVIGATION COMMANDS]</span>
+<span class="highlight">home</span>     — Return to the main deployment matrix
+<span class="highlight">services</span> — Access our service protocols
+<span class="highlight">about</span>    — Learn about El Variente
+<span class="highlight">contact</span>  — Initiate contact protocol
+<span class="highlight">blog</span>     — Access strategic insights
+<span class="highlight">careers</span>  — Explore career opportunities
+<span class="highlight">clear</span>    — Clear the terminal display
+<span class="highlight">exit</span>     — Terminate session and return home
+`,
+      home: () => { goToPage("/"); return `<span class="success">[SYSTEM] Redirecting to home...</span>`; },
+      services: () => { goToPage("/services"); return `<span class="success">[SYSTEM] Redirecting to services...</span>`; },
+      about: () => { goToPage("/about"); return `<span class="success">[SYSTEM] Redirecting to about...</span>`; },
+      contact: () => { goToPage("/contact"); return `<span class="success">[SYSTEM] Redirecting to contact...</span>`; },
+      blog: () => { goToPage("/blog"); return `<span class="success">[SYSTEM] Redirecting to blog...</span>`; },
+      careers: () => { goToPage("/careers"); return `<span class="success">[SYSTEM] Redirecting to careers...</span>`; },
+      clear: () => {
+        output.innerHTML = ">>> ";
+        return "";
+      },
+      exit: () => { goToPage("/"); return `<span class="success">[SYSTEM] Terminating session...</span>`; }
+    };
+
+    // Handle command input
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const cmd = input.value.trim().toLowerCase();
+        const originalCmd = input.value.trim(); // Keep original for display
+        input.value = "";
+
+        // Echo the command to the terminal
+        appendToOutput(`<span class="prompt">>>></span> ${originalCmd}`);
+
+        let response = "";
+        if (commands[cmd]) {
+          response = commands[cmd]();
+        } else if (cmd === "") {
+          response = "";
+        } else {
+          response = `<span class="error">[ERROR] Command '${originalCmd}' not recognized. Type 'help' for options.</span>`;
+        }
+
+        if (response) {
+            appendToOutput(response);
+        }
+
+        // Ensure scroll stays at bottom after output
+        output.parentElement.scrollTop = output.parentElement.scrollHeight;
+      }
+    });
+
+    // Focus the input on load
+    window.addEventListener('load', () => {
+        input.focus();
+    });
+  </script>
+</body>
+</html>
