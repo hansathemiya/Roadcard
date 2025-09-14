@@ -12,7 +12,7 @@ If you’re here to clone, **fuck around and find out**.
 We don’t do tutorials.  
 We do systems.  
 We don’t share workflows.  
-We build mythologies.
+We build Brands.
 
 ---
 
