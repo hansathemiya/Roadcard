@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core Pages -->
+  <url><loc>https://elvariente.com/</loc></url>
+  <url><loc>https://elvariente.com/about/</loc></url>
+  <url><loc>https://elvariente.com/contact/</loc></url>
+  <url><loc>https://elvariente.com/privacy/</loc></url>
+  <url><loc>https://elvariente.com/terms/</loc></url>
+  <url><loc>https://elvariente.com/cookies/</loc></url>
+  <url><loc>https://elvariente.com/careers/</loc></url>
+  <url><loc>https://elvariente.com/pricing/</loc></url>
+  <url><loc>https://elvariente.com/portfolio/</loc></url>
+  <url><loc>https://elvariente.com/blog/</loc></url>
+  <url><loc>https://elvariente.com/404/</loc></url>
+
+  <!-- Services Pages -->
+  <url><loc>https://elvariente.com/services/</loc></url>
+  <url><loc>https://elvariente.com/services/branding/</loc></url>
+  <url><loc>https://elvariente.com/services/marketing/</loc></url>
+  <url><loc>https://elvariente.com/services/content/</loc></url>
+  <url><loc>https://elvariente.com/services/smma/</loc></url>
+  <url><loc>https://elvariente.com/services/sales/</loc></url>
+  <url><loc>https://elvariente.com/services/ads/</loc></url>
+  <url><loc>https://elvariente.com/services/web/</loc></url>
+  <url><loc>https://elvariente.com/services/ai/</loc></url>
+  <url><loc>https://elvariente.com/services/strategy/</loc></url>
+  <url><loc>https://elvariente.com/services/seo/</loc></url>
+  <url><loc>https://elvariente.com/services/gmb/</loc></url>
+
+</urlset>
