@@ -2,40 +2,65 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Core Pages -->
-  <url><loc>https://elvariente.com/</loc></url>
-  <url><loc>https://elvariente.com/about/</loc></url>
-  <url><loc>https://elvariente.com/contact/</loc></url>
-  <url><loc>https://elvariente.com/privacy/</loc></url>
-  <url><loc>https://elvariente.com/terms/</loc></url>
-  <url><loc>https://elvariente.com/cookies/</loc></url>
-  <url><loc>https://elvariente.com/careers/</loc></url>
-  <url><loc>https://elvariente.com/pricing/</loc></url>
-  <url><loc>https://elvariente.com/portfolio/</loc></url>
-  <url><loc>https://elvariente.com/blog/</loc></url>
-  <url><loc>https://elvariente.com/404/</loc></url>
+  <url>
+    <loc>https://elvariente.com/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/about/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/contact/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/privacy/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/terms/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/cookies/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/careers/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/pricing/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://elvariente.com/portfolio/</loc>
+    <lastmod>2025-09-16</lastmod>
+  </url>
 
   <!-- Services Pages -->
-  <url><loc>https://elvariente.com/services/</loc></url>
-  <url><loc>https://elvariente.com/services/branding/</loc></url>
-  <url><loc>https://elvariente.com/services/marketing/</loc></url>
-  <url><loc>https://elvariente.com/services/content/</loc></url>
-  <url><loc>https://elvariente.com/services/smma/</loc></url>
-  <url><loc>https://elvariente.com/services/sales/</loc></url>
-  <url><loc>https://elvariente.com/services/ads/</loc></url>
-  <url><loc>https://elvariente.com/services/web/</loc></url>
-  <url><loc>https://elvariente.com/services/ai/</loc></url>
-  <url><loc>https://elvariente.com/services/strategy/</loc></url>
-  <url><loc>https://elvariente.com/services/seo/</loc></url>
-  <url><loc>https://elvariente.com/services/gmb/</loc></url>
-  <url><loc>https://elvariente.com/services/seo-llmo-gmb/</loc></url>
-  <url><loc>https://elvariente.com/services/web-development/</loc></url>
-  <url><loc>https://elvariente.com/services/ai-solutions/</loc></url>
-  <url><loc>https://elvariente.com/services/strategic-problem-solving/</loc></url>
-  <url><loc>https://elvariente.com/services/advertisement/</loc></url>
-  <url><loc>https://elvariente.com/services/content-creation/</loc></url>
+  <url><loc>https://elvariente.com/services/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/branding/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/marketing/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/content/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/smma/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/sales/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/ads/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/web/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/ai/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/strategy/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/seo/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/gmb/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/seo-llmo-gmb/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/web-development/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/ai-solutions/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/strategic-problem-solving/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/advertisement/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/services/content-creation/</loc><lastmod>2025-09-16</lastmod></url>
 
-  <!--Blog Pages-->
-  <url><loc>https://elvariente.com/blog/</loc></url>
-  <url><loc>https://elvariente.com/blog/seo/</loc></url>
-  
+  <!-- Blog Pages -->
+  <url><loc>https://elvariente.com/blog/</loc><lastmod>2025-09-16</lastmod></url>
+  <url><loc>https://elvariente.com/blog/seo/</loc><lastmod>2025-09-16</lastmod></url>
+
 </urlset>
