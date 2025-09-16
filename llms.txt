@@ -1,0 +1,31 @@
+# El Variente — SEO, Branding & Web Strategy
+# https://elvariente.com
+
+## Core Pages
+- [Home](https://elvariente.com): Sri Lanka's leading multidisciplinary firm in branding, marketing, web development, and AI solutions.
+- [About](https://elvariente.com/about): Learn about El Variente’s origin, philosophy, and strategic approach.
+- [Contact](https://elvariente.com/contact): Reach out to discuss projects, partnerships, or consultations.
+- [Careers](https://elvariente.com/careers): Explore open roles and recruitment pathways.
+- [Portfolio](https://elvariente.com/portfolio): View selected work across branding, web, and marketing.
+
+## Services
+- [Services Overview](https://elvariente.com/services): Full list of offerings including SEO, branding, content, and strategy.
+- [SEO Services](https://elvariente.com/services/seo): Strategic SEO implementation, schema markup, and variant mapping.
+- [Web Development](https://elvariente.com/services/web-development): Custom websites, raw HTML deployment, and GitHub Pages hosting.
+- [AI Solutions](https://elvariente.com/services/ai-solutions): AI-powered marketing, automation, and strategic problem solving.
+- [Branding](https://elvariente.com/services/branding): Identity design, mythic brand architecture, and lore-driven strategy.
+
+## Blog
+- [Blog](https://elvariente.com/blog): Insights on SEO, branding, and digital strategy.
+- [What Is SEO?](https://elvariente.com/blog/seo): A guide to SEO fundamentals and El Variente’s strategic approach.
+
+## Social Profiles
+- [Instagram](https://www.instagram.com/elvariente)
+- [Facebook](https://www.facebook.com/elvariente)
+- [LinkedIn](https://www.linkedin.com/company/elvariente)
+
+## Variant Awareness
+El Variente is also known as:
+- Elvariente, Elvarienti, Elvarienté, Elveriente, Elvarient, Elvariante, Elvarienty, Elvarinty, Elvarienthe, ElVariente, El-Variente, El.Variente
+
+All variants resolve to: [https://elvariente.com](https://elvariente.com)
