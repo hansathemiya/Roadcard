@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Join El Variente as a Junior Graphics Designer. Remote, Full-Time. Salary: $100 - $1000 USD."/>
+  <title>Junior Graphics Designer | El Variente</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Garamond, serif;
+      background-color: #F7E7D0; /* Updated primary color */
+      color: #0B0B0B;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glassmorphism */
+    .glass-header,
+    .glass-footer {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header/Navbar */
+    header {
+      padding: 10px 0; /* Slimmer header */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #800020;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #800020;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      padding: 50px 0;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .content-wrapper {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .right-panel {
+      flex: 1;
+      min-width: 250px;
+      background: #F7E7D0; /* Brand peach color */
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .left-panel {
+      flex: 2;
+      background: #F7E7D0; /* Brand peach color */
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .panel-title {
+      color: #800020;
+      font-size: 1.4rem;
+      margin-top: 0;
+      font-weight: normal;
+      border-bottom: 2px solid #800020;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .job-posting h1 {
+      color: #800020;
+      font-size: 2.2rem;
+      margin-top: 0;
+      font-weight: normal;
+    }
+    .job-posting h2 {
+      color: #800020;
+      font-size: 1.6rem;
+      margin-top: 30px;
+      font-weight: normal;
+    }
+    .job-posting h3 {
+      color: #800020;
+      font-size: 1.3rem;
+      margin-top: 25px;
+      font-weight: normal;
+    }
+    .job-posting ul {
+      padding-left: 20px;
+    }
+    .job-posting li {
+      margin-bottom: 10px;
+    }
+    .apply-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #800020;
+      color: white;
+      border: none;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+    .apply-btn:hover {
+      background: #6AA76D;
+    }
+    .key-points {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .key-points li {
+      margin-bottom: 15px;
+    }
+
+    /* Job Details Panel */
+    .job-details {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    .job-details h3 {
+      color: #800020;
+      font-size: 1.3rem;
+      margin-top: 0;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+    .detail-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+    .detail-icon {
+      margin-right: 10px;
+      color: #800020;
+      font-size: 1.1rem;
+    }
+    .detail-label {
+      font-weight: bold;
+      color: #0B0B0B;
+      margin-right: 10px;
+    }
+    .detail-value {
+      color: #0B0B0B;
+      font-weight: 500;
+    }
+
+    /* Application Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #F7E7D0;
+      margin: 5% auto;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+    .close:hover {
+      color: #000;
+    }
+    .form-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    .form-group-full {
+      flex: 100%;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #800020;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: Garamond, serif;
+      box-sizing: border-box;
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .submit-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #800020;
+      color: white;
+      border: none;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      background: #6AA76D;
+    }
+    .status-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      display: none;
+    }
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #F7E7D0;
+      color: #0B0B0B;
+      padding: 40px 0 0;
+      margin-top: 50px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h5 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #0B0B0B;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    .footer-column ul li a {
+      color: #0B0B0B;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-column ul li a:hover {
+      color: #6AA76D;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-icons a:hover {
+      background: #6AA76D;
+    }
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      color: #0B0B0B;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass-header,
+      .glass-footer {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgba(247, 231, 208, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      .content-wrapper {
+        flex-direction: column;
+      }
+
+      .left-panel, .right-panel {
+        width: 100%;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: 2% auto;
+      }
+    }
+    /* Ensure Cover Letter label stays above */
+    #coverLetter {
+      width: 100%;
+      min-height: 150px; /* slightly taller by default */
+      padding: 12px;
+      border: 1px solid #800020;
+      border-radius: 8px;
+      background-color: #F7E7D0;
+      color: #0B0B0B;
+      font-family: Garamond, serif;
+      font-size: 1rem;
+      box-sizing: border-box; /* ensures padding doesn’t break width */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #coverLetter:focus {
+      outline: none;
+      border-color: #6AA76D;
+      box-shadow: 0 0 0 2px rgba(106, 167, 109, 0.25);
+    }
+
+    /* Optional: make the container full-width without side constraints */
+    .form-group-full {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org  ",
+    "@type": "Organization",
+    "name": "El Variente",
+    "url": "https://elvariente.com  ",
+    "logo": "https://elvariente.com/assets/logo.png  ",
+    "image": "https://elvariente.com/assets/og-image.jpg  ",
+    "description": "El Variente is Sri Lanka's leading multidisciplinary firm in branding, marketing, web development, AI solutions, and strategic business problem solving.",
+    "sameAs": [
+      "https://www.linkedin.com/in/elvariente  ",
+      "https://www.instagram.com/elvariente  ",
+      "https://www.facebook.com/elvariente  ",
+      "https://twitter.com/elvariente  "
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org  ",
+    "@type": "JobPosting",
+    "title": "Junior Graphics Designer",
+    "description": "Join El Variente as a Junior Graphics Designer. Remote, Full-Time. Salary: $100 - $1000 USD.",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "El Variente",
+      "value": "JR-GFX-DES-001"
+    },
+    "datePosted": "2025-01-07",
+    "employmentType": ["FULL_TIME"],
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "El Variente",
+      "sameAs": "https://elvariente.com  "
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Colombo",
+        "addressCountry": "LK"
+      }
+    },
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "LK"
+    }
+  }
+  </script>
+
+  <!-- Header/Navbar -->
+  <header class="glass-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+         <h1 class="logo">
+          <a href="/">El Variente</a>
+         </h1>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="main-content">
+    <div class="content-wrapper">
+      <!-- Left Panel (Main Content) -->
+      <div class="left-panel">
+        <div class="job-posting">
+          <h1>Junior Graphics Designer</h1>
+          
+          <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Designs</span>
+            <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Remote</span>
+            <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Full-Time</span>
+            <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Mid Level</span>
+          </div>
+          
+          <button class="apply-btn" onclick="openModal()">Apply for this position</button>
+          
+          <div style="margin-top: 30px;">
+            <h2>About the Role</h2>
+            <p>We are looking for a creative and detail-oriented Designer to join our growing team. You will be responsible for creating visually compelling designs that communicate our brand, products, and ideas across digital platforms. The ideal candidate has a strong design sense, can work collaboratively, and is passionate about delivering high-quality visual experiences.</p>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <h2>Requirements</h2>
+            <ul>
+              <li>Proven experience as a Designer or similar role</li>
+              <li>Strong portfolio showcasing creative and professional design work</li>
+              <li>Proficiency in design tools such as Figma, Adobe Photoshop, Illustrator, or similar</li>
+              <li>Solid understanding of layout, typography, color theory, and branding</li>
+              <li>Ability to turn ideas and concepts into visually appealing designs</li>
+              <li>Strong attention to detail and creativity</li>
+              <li>Ability to manage multiple tasks and meet deadlines</li>
+              <li>Good communication and collaboration skills</li>
+              <li>Willingness to learn, adapt, and improve continuously</li>
+            </ul>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <h2>Responsibilities</h2>
+            <ul>
+              <li>Create visually engaging designs for digital and marketing materials</li>
+              <li>Develop and maintain consistent brand visuals across all platforms</li>
+              <li>Collaborate with marketing, product, and development teams</li>
+              <li>Translate ideas, concepts, and briefs into high-quality designs</li>
+              <li>Design graphics for social media, websites, and promotional campaigns</li>
+              <li>Revise and improve designs based on feedback</li>
+              <li>Ensure designs meet brand guidelines and project goals</li>
+              <li>Manage multiple design tasks and meet deadlines</li>
+              <li>Stay updated with design trends and tools</li>
+            </ul>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <h2>Required Skills</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+              <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Figma</span>
+              <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Photoshop</span>
+              <span style="background: rgba(128, 0, 32, 0.1); color: #800020; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Illustrator</span>
+            </div>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <h2>Benefits</h2>
+            <ul>
+              <li>Opportunity to work with a creative and growing team</li>
+              <li>Career growth and skill development opportunities</li>
+              <li>Flexible work environment</li>
+              <li>Hands-on experience with exciting projects and brands</li>
+              <li>Supportive and collaborative team culture</li>
+              <li>Opportunity to make real impact and contribute ideas</li>
+              <li>Access to modern tools and resources</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel (Job Details) -->
+      <div class="right-panel">
+        <div class="job-details">
+          <h3>Job Details</h3>
+          <div class="detail-item">
+            <div class="detail-icon">$</div>
+            <div class="detail-label">Salary Range</div>
+            <div class="detail-value">USD 100 - 1000</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">👥</div>
+            <div class="detail-label">Open Positions</div>
+            <div class="detail-value">1</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📅</div>
+            <div class="detail-label">Application Deadline</div>
+            <div class="detail-value">December 30, 2025</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-label">Location</div>
+            <div class="detail-value">Remote</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">💼</div>
+            <div class="detail-label">Employment Type</div>
+            <div class="detail-value">Full-Time</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🎯</div>
+            <div class="detail-label">Experience Level</div>
+            <div class="detail-value">Mid</div>
+          </div>
+          <button class="apply-btn" onclick="openModal()">Apply Now</button>
+        </div>
+        
+        <div class="job-details">
+          <h3>Qualifications</h3>
+          <ul>
+            <li>Proven experience working as a Designer or in a similar role</li>
+            <li>Strong portfolio demonstrating creativity and design skills</li>
+            <li>Proficiency in design tools such as Figma, Adobe Photoshop, Illustrator, or related software</li>
+            <li>Good understanding of design principles, branding, and visual communication</li>
+            <li>Ability to work independently and as part of a team</li>
+            <li>Strong time management and organizational skills</li>
+            <li>Attention to detail with a creative mindset</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Modal -->
+  <div id="applicationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Apply for Junior Graphics Designer</h2>
+      <p>Fill in your details to submit your application</p>
+      <form id="applicationForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="experience">Years of Experience</label>
+            <select id="experience" name="experience">
+              <option value="">Select</option>
+              <option value="0-1">0-1 years</option>
+              <option value="1-2">1-2 years</option>
+              <option value="2-3">2-3 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5+">5+ years</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile</label>
+            <input type="url" id="linkedin" name="linkedin">
+          </div>
+          <div class="form-group">
+            <label for="portfolio">Portfolio URL</label>
+            <input type="url" id="portfolio" name="portfolio">
+          </div>
+        </div>
+        <!-- REMOVED FILE UPLOAD FIELD -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="salary">Expected Salary (USD)</label>
+            <input type="text" id="salary" name="salary">
+          </div>
+          <div class="form-group">
+            <label for="resumeLink">Resume/CV Link *</label>
+            <input type="url" id="resumeLink" name="resumeLink" placeholder="Paste link to Google Drive, Dropbox, etc." required>
+          </div>
+        </div>
+        <div class="form-group-full">
+          <label for="coverLetter">Cover Letter</label>
+          <textarea id="coverLetter" name="coverLetter" rows="6" placeholder="Tell us why you're interested in this position and what makes you a great fit for our team..."></textarea>
+        </div>
+        <div class="form-row" style="margin-top: 20px;">
+          <button type="button" class="btn" onclick="closeModal()" style="flex: 1; background: transparent; color: #800020; border: 2px solid #800020; margin-right: 10px;">Cancel</button>
+          <button type="submit" class="submit-btn" style="flex: 1;">Submit Application</button>
+        </div>
+        <div id="statusMessage" class="status-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h5>El Variente</h5>
+          <p>Sri Lanka's most prestigious multidisciplinary firm specializing in branding, marketing, content creation, and strategic business solutions.</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/elvariente  " target="_blank" rel="noopener">
+             <img src="/logos/linkedin.svg" alt="LinkedIn" width="20">
+            </a>
+             <a href="https://www.instagram.com/elvariente  " target="_blank" rel="noopener">
+             <img src="/logos/instagram.svg" alt="Instagram" width="20">
+            </a>
+            <a href="https://www.facebook.com/elvariente  " target="_blank" rel="noopener">
+              <img src="/logos/facebook.svg" alt="Facebook" width="20">
+            </a>
+            <a href="https://twitter.com/elvariente  " target="_blank" rel="noopener">
+             <img src="/logos/twitter.svg" alt="Twitter" width="20">
+           </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/services#branding">Branding</a></li>
+            <li><a href="/services#marketing">Marketing</a></li>
+            <li><a href="/services#content">Content Creation</a></li>
+            <li><a href="/services#smma">Social Media</a></li>
+            <li><a href="/services#sales">Sales</a></li>
+            <li><a href="/services#ads">Advertisement</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="/services#web">Web Development</a></li>
+            <li><a href="/services#ai">AI Solutions</a></li>
+            <li><a href="/services#strategy">Strategic Problem Solving</a></li>
+            <li><a href="/services#seo">SEO & LLMO</a></li>
+            <li><a href="/services#gmb">Google My Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 El Variente. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('#nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Load saved form data from localStorage
+    function loadSavedFormData() {
+      const savedData = JSON.parse(localStorage.getItem('applicationFormData')) || {};
+      Object.keys(savedData).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+          if (element.type === 'checkbox' || element.type === 'radio') {
+            element.checked = savedData[key];
+          } else {
+            element.value = savedData[key];
+          }
+        }
+      });
+    }
+
+    // Save form data to localStorage
+    function saveFormData() {
+      const formData = {};
+      const inputs = document.querySelectorAll('#applicationForm input, #applicationForm select, #applicationForm textarea');
+      inputs.forEach(input => {
+        if (input.id) {
+          formData[input.id] = input.value;
+        }
+      });
+      localStorage.setItem('applicationFormData', JSON.stringify(formData));
+    }
+
+    // Load saved data when modal opens
+    function openModal() {
+      document.getElementById('applicationModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      loadSavedFormData();
+    }
+
+    function closeModal() {
+      document.getElementById('applicationModal').style.display = 'none';
+      document.body.style.overflow = '';
+      resetForm();
+    }
+
+    function resetForm() {
+      document.getElementById('applicationForm').reset();
+      document.getElementById('statusMessage').style.display = 'none';
+      document.getElementById('statusMessage').className = 'status-message';
+    }
+
+    // Form Submission - FIXED
+    document.getElementById('applicationForm').addEventListener('input', saveFormData);
+    document.getElementById('applicationForm').addEventListener('change', saveFormData);
+
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const statusMessage = document.getElementById('statusMessage');
+
+      // Clear any previous messages
+      statusMessage.style.display = 'none';
+      statusMessage.className = 'status-message';
+
+      // Show submitting message
+      statusMessage.textContent = 'Submitting...';
+      statusMessage.className = 'status-message'; // Reset classes
+      statusMessage.style.display = 'block';
+
+      // Prepare data as plain object for JSON submission
+      const formObject = {};
+      for (let [key, value] of formData.entries()) {
+        formObject[key] = value;
+      }
+
+      // Submit as JSON
+      fetch('https://formspree.io/f/xwvebvzd', { // Fixed URL: removed trailing spaces
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json', // Send as JSON
+        },
+        body: JSON.stringify(formObject), // Stringify the object
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          // Throw an error if the response isn't OK to trigger catch
+          return response.json().then(errData => {
+            console.error("Formspree Error:", errData);
+            throw new Error(`Server responded with ${response.status}: ${errData.detail || 'Unknown error'}`);
+          });
+        }
+      })
+      .then(data => {
+        // Success
+        statusMessage.textContent = 'Thank you for your application! We will review it shortly.';
+        statusMessage.className = 'status-message success-message';
+        
+        // Clear saved form data after successful submission
+        localStorage.removeItem('applicationFormData');
+        
+        setTimeout(() => {
+          closeModal();
+        }, 2000);
+      })
+      .catch(error => {
+        console.error("Submission Error:", error); // Log the actual error
+        // Error
+        statusMessage.textContent = 'There was an error submitting your application. Please try again.';
+        statusMessage.className = 'status-message error-message';
+      });
+    });
+
+    // Close modal if clicked outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById('applicationModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
